@@ -31,9 +31,10 @@ class _PromoPageState extends State<PromoPage> {
           ),
         ),
         actions: [
+          // IKON TIKET (SOLID)
           IconButton(
             icon: const Icon(
-              Icons.confirmation_number_outlined,
+              Icons.confirmation_number,
               color: Color(0xFF005DAA),
             ),
             onPressed: () {
@@ -43,9 +44,10 @@ class _PromoPageState extends State<PromoPage> {
               );
             },
           ),
+          // IKON LONCENG (SOLID)
           IconButton(
             icon: const Icon(
-              Icons.notifications_none,
+              Icons.notifications,
               color: Color(0xFF005DAA),
             ),
             onPressed: () {
@@ -70,7 +72,7 @@ class _PromoPageState extends State<PromoPage> {
               ),
               const SizedBox(height: 12),
 
-              // Baris 1 (MENGGUNAKAN ANGKA ANDA: 0.35 & 0.32)
+              // Baris 1
               Row(
                 children: [
                   Expanded(
@@ -94,7 +96,7 @@ class _PromoPageState extends State<PromoPage> {
               ),
               const SizedBox(height: 12),
 
-              // Baris 2 (MENGGUNAKAN ANGKA ANDA: 0.5 & 0.65)
+              // Baris 2
               Row(
                 children: [
                   Expanded(
@@ -118,7 +120,7 @@ class _PromoPageState extends State<PromoPage> {
               ),
               const SizedBox(height: 12),
 
-              // Baris 3 (MENGGUNAKAN ANGKA ANDA: 0.8)
+              // Baris 3
               Row(
                 children: [
                   Expanded(

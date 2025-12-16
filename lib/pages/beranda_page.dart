@@ -23,12 +23,14 @@ class BerandaPage extends StatelessWidget {
           ),
         ),
         actions: [
+          // IKON TIKET (SOLID)
           IconButton(
-            icon: const Icon(Icons.confirmation_number_outlined, color: Color(0xFF005DAA)),
+            icon: const Icon(Icons.confirmation_number, color: Color(0xFF005DAA)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const VoucherPage())),
           ),
+          // IKON LONCENG (SOLID)
           IconButton(
-            icon: const Icon(Icons.notifications_none, color: Color(0xFF005DAA)),
+            icon: const Icon(Icons.notifications, color: Color(0xFF005DAA)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const NotifikasiPage())),
           ),
         ],
@@ -39,11 +41,11 @@ class BerandaPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 1. KARTU SALDO (UBAH WARNA JADI ABU MUDA)
+              // 1. KARTU SALDO
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF6F6F6), // Putih keabu-abuan
+                  color: const Color(0xFFF6F6F6), 
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 5, offset: const Offset(0, 2))
@@ -89,7 +91,7 @@ class BerandaPage extends StatelessWidget {
                 crossAxisCount: 4,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 8,
-                childAspectRatio: 0.8,
+                childAspectRatio: 0.7,
                 children: [
                   _buildMenuIcon(context, "assets/images/icon_subsidi_tepat.png", "Subsidi Tepat", null),
                   _buildMenuIcon(context, "assets/images/icon_layanan_antar.png", "Layanan\nAntar", const LayananAntarPage()),
@@ -100,14 +102,14 @@ class BerandaPage extends StatelessWidget {
                 ],
               ),
 
-              // 3. SPBU TERDEKAT (UBAH WARNA JADI ABU MUDA)
+              // 3. SPBU TERDEKAT
               const SizedBox(height: 24),
               const Text("SPBU Terdekat", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               const SizedBox(height: 12),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF6F6F6), // Putih keabu-abuan
+                  color: const Color(0xFFF6F6F6), 
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(color: Colors.grey.withValues(alpha: 0.1), spreadRadius: 1, blurRadius: 5)
@@ -164,13 +166,12 @@ class BerandaPage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // WADAH KOTAK (UBAH WARNA JADI ABU MUDA)
           Container(
             height: 64, 
             width: 64,  
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFFF6F6F6), // Putih keabu-abuan (Agar kontras dengan BG putih)
+              color: const Color(0xFFF6F6F6), 
               borderRadius: BorderRadius.circular(16), 
               boxShadow: [
                 BoxShadow(
@@ -209,7 +210,7 @@ class BerandaPage extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
-        color: const Color(0xFFF6F6F6), // UBAH WARNA JADI ABU MUDA
+        color: const Color(0xFFF6F6F6), 
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 4, offset: const Offset(0, 2))
