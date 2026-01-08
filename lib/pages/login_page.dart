@@ -24,10 +24,11 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             const SizedBox(height: 100),
             // Logo MyPertamina
-            Image.network(
-              'https://upload.wikimedia.org/wikipedia/id/thumb/a/a0/MyPertamina_logo.svg/1200px-MyPertamina_logo.svg.png',
-              height: 120,
-            ),
+            Image.asset(
+            'assets/images/icon_mypertamina.png',
+               height: 120,
+  fit: BoxFit.contain,
+),
             const SizedBox(height: 50),
             
             const Align(
