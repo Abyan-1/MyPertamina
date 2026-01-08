@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// Hanya import halaman yang tampil di Bottom Navigation Bar
 import 'pages/beranda_page.dart';
+import 'pages/login_page.dart'; // Sudah benar
 import 'pages/promo_page.dart'; 
 
 void main() {
@@ -17,18 +17,15 @@ class MyApp extends StatelessWidget {
       title: 'MyPertamina Clone',
       theme: ThemeData(
         primaryColor: const Color(0xFF005DAA),
-        // Mengatur background seluruh aplikasi jadi Putih
-        scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
       
-      // --- KODE KHUSUS CARA 1 (BINGKAI HP DI TENGAH) ---
+      // Builder ini sudah benar untuk membuat bingkai HP di web/desktop
       builder: (context, child) {
         return Center(
           child: Container(
-            // Batasi lebar seukuran HP (480px)
             constraints: const BoxConstraints(maxWidth: 480),
-            // Beri border/bayangan agar terlihat seperti layar HP
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.symmetric(
@@ -46,13 +43,14 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-      // --------------------------------------------------
 
-      home: const MainScreen(),
+      // POIN PENTING: Start aplikasi dari LoginPage
+      home: const LoginPage(), 
     );
   }
 }
 
+// MainScreen tetap di sini sebagai wadah setelah login berhasil
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -63,10 +61,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  // Daftar halaman utama (Bottom Navigation)
   final List<Widget> _pages = [
-    const BerandaPage(),       // Index 0: Beranda
-    const PromoPage(),         // Index 1: Promo (Banner Merah/Biru)
+    const BerandaPage(),
+    const PromoPage(),
     const Center(child: Text("Fitur Bayar")), 
     const Center(child: Text("Riwayat")),
     const Center(child: Text("Akun")),
@@ -85,8 +82,8 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        selectedItemColor: const Color(0xFF005DAA), // Biru saat aktif
-        unselectedItemColor: Colors.grey,           // Abu-abu saat mati
+        selectedItemColor: const Color(0xFF005DAA),
+        unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
