@@ -23,12 +23,12 @@ class BerandaPage extends StatelessWidget {
           ),
         ),
         actions: [
-          // IKON TIKET (SOLID)
+          // IKON TIKET (SOLID/PENUH)
           IconButton(
             icon: const Icon(Icons.confirmation_number, color: Color(0xFF005DAA)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const VoucherPage())),
           ),
-          // IKON LONCENG (SOLID)
+          // IKON LONCENG (SOLID/PENUH)
           IconButton(
             icon: const Icon(Icons.notifications, color: Color(0xFF005DAA)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const NotifikasiPage())),
@@ -91,12 +91,20 @@ class BerandaPage extends StatelessWidget {
                 crossAxisCount: 4,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 8,
-                childAspectRatio: 0.7,
+                // Menggunakan 0.7 agar teks "Layanan Antar" tidak overflow
+                childAspectRatio: 0.7, 
                 children: [
                   _buildMenuIcon(context, "assets/images/icon_subsidi_tepat.png", "Subsidi Tepat", null),
                   _buildMenuIcon(context, "assets/images/icon_layanan_antar.png", "Layanan\nAntar", const LayananAntarPage()),
-                  _buildMenuIcon(context, "assets/images/icon_merchandise.png", "Merchandise", const PromoPage()),
-                  _buildMenuIcon(context, "assets/images/icon_tukar_poin.png", "Tukar Poin", null),
+                  
+                  // --- PERUBAHAN DI SINI ---
+                  // Merchandise -> null (Tidak bisa diklik)
+                  _buildMenuIcon(context, "assets/images/icon_merchandise.png", "Merchandise", null),
+                  
+                  // Tukar Poin -> PromoPage (Bisa diklik)
+                  _buildMenuIcon(context, "assets/images/icon_tukar_poin.png", "Tukar Poin", const PromoPage()),
+                  // -------------------------
+
                   _buildMenuIcon(context, "assets/images/icon_tagihan_gas.png", "Tagihan Gas", const TagihanGasPage()),
                   _buildMenuIcon(context, "assets/images/icon_pelita_air.png", "Pelita Air", null),
                 ],

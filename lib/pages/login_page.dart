@@ -25,10 +25,10 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 100),
             // Logo MyPertamina
             Image.asset(
-            'assets/images/icon_mypertamina.png',
+              'assets/images/icon_mypertamina.png',
                height: 120,
-  fit: BoxFit.contain,
-),
+               fit: BoxFit.contain,
+            ),
             const SizedBox(height: 50),
             
             const Align(
@@ -40,14 +40,26 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-            // Input Nomor Telepon
+            // --- INPUT NOMOR TELEPON (UPDATED) ---
             TextField(
               controller: _phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                prefixText: "+62 ",
+                // MENGGUNAKAN prefixIcon AGAR TEKS +62 SELALU MUNCUL
+                prefixIcon: Container(
+                  width: 50, // Lebar area +62
+                  alignment: Alignment.center, // Posisi teks di tengah
+                  child: const Text(
+                    "+62", 
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, 
+                      color: Colors.black
+                    ),
+                  ),
+                ),
                 hintText: "Nomor Telepon",
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                contentPadding: const EdgeInsets.symmetric(vertical: 16), // Agar tinggi input pas
               ),
             ),
             const SizedBox(height: 20),
@@ -80,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 30),
 
-            // Tombol Masuk - DI SINI PENYESUAIANNYA
+            // Tombol Masuk
             SizedBox(
               width: double.infinity,
               height: 50,
@@ -92,13 +104,10 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   // Logika Validasi: Nomor HP terisi & PIN 6 digit
                   if (_phoneController.text.isNotEmpty && _pinController.text.length == 6) {
-                    
-                    // NAVIGASI: Pindah ke MainScreen agar Bottom Navigation Bar muncul
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const MainScreen()),
                     );
-                    
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
